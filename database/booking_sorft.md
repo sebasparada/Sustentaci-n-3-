@@ -54,6 +54,7 @@ CREATE TABLE auditoria (
     fecha       TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_auditoria_usuario FOREIGN KEY (usuario_id) REFERENCES usuario(id) ON DELETE SET NULL
 );
+```
 ## 2. Clientes
 
 Administra la información de los huéspedes.
@@ -66,7 +67,7 @@ CREATE TABLE tipo_documento (
     id     INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL UNIQUE
 );
-
+```
 CREATE TABLE cliente (
     id                INT AUTO_INCREMENT PRIMARY KEY,
     nombre            VARCHAR(100) NOT NULL,
@@ -90,16 +91,18 @@ CREATE TABLE historial_cliente (
     CONSTRAINT fk_hist_cliente FOREIGN KEY (cliente_id) REFERENCES cliente(id),
     CONSTRAINT fk_hist_usuario FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
+```
 ## 3. Gestión de Unidades
 
 Control de habitaciones o unidades del hotel.
 
-Tablas
+### Tablas
 tipo_unidad
 estado_unidad
 unidad
 tipo_tarifa
 tarifa
+```
 CREATE TABLE tipo_unidad (
     id     INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL UNIQUE
@@ -124,10 +127,11 @@ CREATE TABLE unidad (
     CONSTRAINT fk_unidad_tipo   FOREIGN KEY (tipo_unidad_id) REFERENCES tipo_unidad(id),
     CONSTRAINT fk_unidad_estado FOREIGN KEY (estado_unidad_id) REFERENCES estado_unidad(id)
 );
+```
 ## 4. Reservas y Estadías
 
 Gestión completa del ciclo de reservas.
-
+```
 CREATE TABLE reserva (
     id                INT AUTO_INCREMENT PRIMARY KEY,
     cliente_id        INT,
@@ -142,10 +146,11 @@ CREATE TABLE reserva (
     observaciones     TEXT,
     fecha_creacion    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+```
  ## 5. Limpieza
 
 Control del estado y mantenimiento de unidades.
-
+```
 CREATE TABLE limpieza (
     id               INT AUTO_INCREMENT PRIMARY KEY,
     unidad_id        INT,
@@ -170,6 +175,7 @@ CREATE TABLE pago (
     factura_id INT,
     monto      DECIMAL(10,2) NOT NULL
 );
+```
 ## 7. Servicios y Eventos
 
 Servicios adicionales y gestión de eventos.
@@ -185,15 +191,17 @@ CREATE TABLE evento (
     nombre    VARCHAR(150) NOT NULL,
     fecha     DATE NOT NULL
 );
+
 ## 8. Configuración
 
 Parámetros generales del sistema.
-
+```
 CREATE TABLE configuracion (
     id          INT AUTO_INCREMENT PRIMARY KEY,
     clave       VARCHAR(50) NOT NULL UNIQUE,
     valor       VARCHAR(255) NOT NULL
 );
+```
 ## Conclusión
 
 Esta base de datos está diseñada para cubrir todas las operaciones clave de un sistema hotelero moderno:
