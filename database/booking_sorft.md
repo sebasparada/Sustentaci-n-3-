@@ -179,7 +179,7 @@ CREATE TABLE pago (
 ## 7. Servicios y Eventos
 
 Servicios adicionales y gestión de eventos.
-
+```
 CREATE TABLE servicio (
     id          INT AUTO_INCREMENT PRIMARY KEY,
     nombre      VARCHAR(100) NOT NULL,
@@ -191,7 +191,7 @@ CREATE TABLE evento (
     nombre    VARCHAR(150) NOT NULL,
     fecha     DATE NOT NULL
 );
-
+```
 ## 8. Configuración
 
 Parámetros generales del sistema.
