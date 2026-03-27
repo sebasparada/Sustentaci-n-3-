@@ -54,11 +54,11 @@ CREATE TABLE auditoria (
     fecha       TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_auditoria_usuario FOREIGN KEY (usuario_id) REFERENCES usuario(id) ON DELETE SET NULL
 );
-2. Clientes
+## 2. Clientes
 
 Administra la información de los huéspedes.
 
-Tablas
+### Tablas
 tipo_documento
 cliente
 historial_cliente
@@ -90,7 +90,7 @@ CREATE TABLE historial_cliente (
     CONSTRAINT fk_hist_cliente FOREIGN KEY (cliente_id) REFERENCES cliente(id),
     CONSTRAINT fk_hist_usuario FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
-3. Gestión de Unidades
+## 3. Gestión de Unidades
 
 Control de habitaciones o unidades del hotel.
 
@@ -124,7 +124,7 @@ CREATE TABLE unidad (
     CONSTRAINT fk_unidad_tipo   FOREIGN KEY (tipo_unidad_id) REFERENCES tipo_unidad(id),
     CONSTRAINT fk_unidad_estado FOREIGN KEY (estado_unidad_id) REFERENCES estado_unidad(id)
 );
-4. Reservas y Estadías
+## 4. Reservas y Estadías
 
 Gestión completa del ciclo de reservas.
 
@@ -142,7 +142,7 @@ CREATE TABLE reserva (
     observaciones     TEXT,
     fecha_creacion    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
- 5. Limpieza
+ ## 5. Limpieza
 
 Control del estado y mantenimiento de unidades.
 
@@ -154,7 +154,7 @@ CREATE TABLE limpieza (
     fecha            TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     estado           VARCHAR(20) NOT NULL
 );
-6. Facturación y Pagos
+## 6. Facturación y Pagos
 
 Módulo financiero del sistema.
 
@@ -170,7 +170,7 @@ CREATE TABLE pago (
     factura_id INT,
     monto      DECIMAL(10,2) NOT NULL
 );
-7. Servicios y Eventos
+## 7. Servicios y Eventos
 
 Servicios adicionales y gestión de eventos.
 
@@ -185,7 +185,7 @@ CREATE TABLE evento (
     nombre    VARCHAR(150) NOT NULL,
     fecha     DATE NOT NULL
 );
-8. Configuración
+## 8. Configuración
 
 Parámetros generales del sistema.
 
@@ -194,7 +194,7 @@ CREATE TABLE configuracion (
     clave       VARCHAR(50) NOT NULL UNIQUE,
     valor       VARCHAR(255) NOT NULL
 );
-Conclusión
+## Conclusión
 
 Esta base de datos está diseñada para cubrir todas las operaciones clave de un sistema hotelero moderno:
 
