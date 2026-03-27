@@ -159,6 +159,7 @@ CREATE TABLE limpieza (
     fecha            TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     estado           VARCHAR(20) NOT NULL
 );
+```
 ## 6. Facturación y Pagos
 
 Módulo financiero del sistema.
@@ -169,6 +170,7 @@ CREATE TABLE factura (
     reserva_id        INT,
     total             DECIMAL(10,2) NOT NULL
 );
+```
 
 CREATE TABLE pago (
     id         INT AUTO_INCREMENT PRIMARY KEY,
