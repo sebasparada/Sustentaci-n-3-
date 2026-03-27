@@ -55,9 +55,9 @@ CREATE TABLE auditoria (
     CONSTRAINT fk_auditoria_usuario FOREIGN KEY (usuario_id) REFERENCES usuario(id) ON DELETE SET NULL
 );
 ```
-2. Clientes
+## 2. Clientes
 Administra la información de los huéspedes.
-Tablas
+### Tablas
 
 tipo_documento
 cliente
@@ -93,9 +93,9 @@ CREATE TABLE historial_cliente (
     CONSTRAINT fk_hist_usuario FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
 ```
-3. Gestión de Unidades
+## 3. Gestión de Unidades
 Control de habitaciones o unidades del hotel.
-Tablas
+### Tablas
 
 tipo_unidad
 estado_unidad
@@ -146,7 +146,7 @@ CREATE TABLE tarifa (
     CONSTRAINT fk_tarifa_tipo   FOREIGN KEY (tipo_tarifa_id) REFERENCES tipo_tarifa(id)
 );
 ```
-4. Reservas y Estadías
+## 4. Reservas y Estadías
 Gestión completa del ciclo de reservas.
 ```
 CREATE TABLE canal_reserva (
@@ -201,7 +201,7 @@ CREATE TABLE estadia (
     CONSTRAINT fk_estadia_u_out    FOREIGN KEY (usuario_checkout_id) REFERENCES usuario(id)
 );
 ```
-5. Limpieza
+## 5. Limpieza
 Control del estado y mantenimiento de unidades.
 ```
 CREATE TABLE tipo_limpieza (
@@ -223,7 +223,7 @@ CREATE TABLE limpieza (
     CONSTRAINT fk_limpieza_tipo FOREIGN KEY (tipo_limpieza_id) REFERENCES tipo_limpieza(id)
 );
 ```
-6. Facturación y Pagos
+## 6. Facturación y Pagos
 Módulo financiero del sistema.
 ```
 CREATE TABLE estado_factura (
@@ -282,7 +282,7 @@ CREATE TABLE pago (
     CONSTRAINT fk_pago_usuario FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
 ```
-7. Servicios y Eventos
+## 7. Servicios y Eventos
 Servicios adicionales y gestión de eventos.
 ```
 CREATE TABLE tipo_servicio (
@@ -336,7 +336,7 @@ CREATE TABLE evento (
     CONSTRAINT fk_evento_estado  FOREIGN KEY (estado_evento_id) REFERENCES estado_evento(id)
 );
 ```
-8. Configuración
+## 8. Configuración
 Parámetros generales del sistema.
 ```
 CREATE TABLE configuracion (
@@ -346,7 +346,7 @@ CREATE TABLE configuracion (
     descripcion TEXT
 );
 ```
-Conclusión
+## Conclusión
 Esta base de datos está diseñada para cubrir todas las operaciones clave de un sistema hotelero moderno:
 
 Gestión de usuarios y seguridad
